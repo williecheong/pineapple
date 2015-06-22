@@ -7,10 +7,20 @@ use App\Http\Controllers\Controller;
 class MainController extends Controller {
     
     public function main() {
-
     	$menu = $this->extractLatestMenu();
-        
         return view('landing', 
+        	array(
+        		'images' => $menu['images'],
+        		'price' => $menu['price'],
+        		'title' => $menu['title'],
+        		'subtitle' => $menu['subtitle'],
+        	)
+        );
+    }
+
+    public function order() {
+    	$menu = $this->extractLatestMenu();
+        return view('ordering', 
         	array(
         		'images' => $menu['images'],
         		'price' => $menu['price'],
