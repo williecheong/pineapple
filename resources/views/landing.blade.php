@@ -4,7 +4,7 @@
             <meta http-equiv="content-type" content="text/html; charset=UTF-8">
             <meta charset="utf-8">
             <title>Pineapple Kitchens</title>
-            <meta name="generator" content="Bootply" />
+            <link rel="icon" type="img/ico" href="/favicon.ico">
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
             <link href='//fonts.googleapis.com/css?family=Roboto:500,100,300,700,400' rel='stylesheet' type="text/css">
@@ -14,18 +14,13 @@
     <body>
         <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
-                <div class="item active">
-                    <div class="container">
+                @foreach($images as $key => $image)
+                    <div class="item @if($key==0) {!! 'active' !!} @endif">
+                        <div class="container">
+                            <img src="{!! $image !!}">
+                        </div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="container">
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="container">
-                    </div>
-                </div>
+                @endforeach
             </div>
             <!-- Controls -->
             <a class="left carousel-control" href="#myCarousel" data-slide="prev">
@@ -36,25 +31,18 @@
             </a>
             <div class="carousel-caption">
                 <h1>
-                    Bacon Wrapped Grilled Cheese<br>
-                    <span class="lead">Comes with a side of fries</span>
+                    {!! $title !!}<br>
+                    <span class="lead">{!! $subtitle !!}</span>
                 </h1>
                 <a class="btn btn-lg btn-primary" href="/">
                     <i class="fa fa-cutlery"></i>
-                    Order Here
+                    Order Here for ${!! $price !!}
                 </a>
             </div>                
         </div>
         <!-- /.carousel -->
 
-
-        <!-- Marketing messaging and featurettes
-        ================================================== -->
-        <!-- Wrap the rest of the page in another container to center all the content. -->
-
         <div class="container marketing">
-
-            <!-- Three columns of text below the carousel -->
             <div class="row">
                 <div class="col-md-4 text-center">
                     <img class="img-circle" src="http://placehold.it/140x140">
@@ -77,6 +65,7 @@
         <!-- FOOTER -->
         <footer class="text-center">
             <hr>
+            <i class="fa fa-copyright"></i>
             Pineapple Kitchens 2015 
         </footer>
         <!-- script references -->
