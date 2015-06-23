@@ -22,6 +22,7 @@ class MainController extends Controller {
     	$menu = $this->extractLatestMenu();
         return view('ordering', 
         	array(
+        		'menuItem' => $menu['menuItem'],
         		'images' => $menu['images'],
         		'price' => $menu['price'],
         		'title' => $menu['title'],
@@ -63,6 +64,7 @@ class MainController extends Controller {
 		}
 
 		return array(
+			'menuItem' => $date,
 			'images' => $images,
 			'price' => $price,
 			'title' => $title,

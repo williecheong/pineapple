@@ -34,7 +34,7 @@
                     {!! $title !!}<br>
                     <span class="lead">{!! $subtitle !!}</span>
                 </h1>
-                <a class="btn btn-lg btn-primary" href="/order">
+                <a class="btn btn-lg btn-success" href="/order">
                     <i class="fa fa-cutlery"></i>
                     Order Here for ${!! $price !!}
                 </a>
