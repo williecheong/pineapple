@@ -3,7 +3,7 @@
     <head>
             <meta http-equiv="content-type" content="text/html; charset=UTF-8">
             <meta charset="utf-8">
-            <title>Pineapple Kitchens</title>
+            <title>Pineapple Kitchen</title>
             <link rel="icon" type="img/ico" href="/favicon.ico">
             <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
             <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@
                 </h1>
                 <a class="btn btn-lg btn-success" href="/order">
                     <i class="fa fa-cutlery"></i>
-                    Order Here for ${!! $price !!}
+                    Order for ${!! $price !!}
                 </a>
             </div>                
         </div>
@@ -66,7 +66,7 @@
         <footer class="text-center">
             <hr>
             <i class="fa fa-copyright"></i>
-            Pineapple Kitchens 2015 
+            Pineapple Kitchen 2015 
         </footer>
         <!-- script references -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>

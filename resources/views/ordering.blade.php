@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-        <title>Pineapple Kitchens</title>
+        <title>Pineapple Kitchen</title>
         <link rel="icon" type="img/ico" href="/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -11,17 +11,22 @@
 		<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/assets/css/styles.css" rel="stylesheet">
 		<style>
-			.background-image {
-				min-height: 200px;
+			.main-background {
+				background-image: url('/assets/img/kitchen1.jpg');
+				background-size: cover;
+			}
+
+			.menu-item-as-background-image {
+				min-height: 250px;
 				background-image: url('{!! $images[0] !!}');
 			}
 		</style>
 	</head>
-	<body ng-app="myApp" ng-controller="myController">
+	<body ng-app="myApp" ng-controller="myController" class="main-background">
 		<div class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
 		  	<div class="modal-dialog">
 			  	<div class="modal-content">
-			      	<div class="modal-header background-image"></div>
+			      	<div class="modal-header menu-item-as-background-image"></div>
 			      	<div class="modal-body row">
 			      		<form class="form col-md-12 center-block">
 			      			<div class="form-group row">
@@ -35,7 +40,7 @@
 			            		</div>
 			      			</div>
 			            	<div class="form-group row">
-			            		<div class="col-sm-12 text-center">
+			            		<div class="col-sm-12">
 			            			<span class="lead">
 			            				Contact Information
 			            			</span>
@@ -65,7 +70,7 @@
 			            		</div>
 			              	</div>
 				            <div class="form-group row">
-				            	<div class="col-xs-12 text-center">
+				            	<div class="col-xs-12">
 			            			<span class="lead">
 			            				Delivery Address
 			            			</span>

@@ -13,3 +13,5 @@
 
 Route::get('/', 'MainController@main');
 Route::get('/order', 'MainController@order');
+
+Route::controller('api', 'ApiController');
