@@ -51,13 +51,13 @@ class ApiController extends Controller {
             ),
             array(
                 'orderItem' => 'required|numeric',
-                'quantity' => 'required|min:0',
+                'quantity' => 'required|min:1',
                 'contactName' => 'required',
                 'contactNumber' => 'required',
                 'contactEmail' => 'required|email',
                 'deliveryTime' => 'required',
                 'addressLine1' => 'required',
-                'addressLine2' => 'required',
+                'addressLine2' => '',
                 'addressCity' => 'required|in:Kitchener,Waterloo',
                 'addressProvince' => 'required|in:Ontario',
                 'addressPostal' => 'required|alpha_num',
@@ -96,10 +96,16 @@ class ApiController extends Controller {
                     'metadata' => array(
                         'orderItem' => $input['orderItem'],
                         'quantity' => $input['quantity'],
+                        
+                        'foodCost' => $costs['foodCost'],
+                        'paymentDue' => $costs['paymentDue'],
+                        'deliveryFee' => $costs['deliveryFee'],
+                        
                         'contactName' => $input['contactName'],
                         'contactNumber' => $input['contactNumber'],
                         'contactEmail' => $input['contactEmail'],
                         'deliveryTime' => $input['deliveryTime'],
+                        
                         'addressLine1' => $input['addressLine1'],
                         'addressLine2' => $input['addressLine2'],
                         'addressCity' => $input['addressCity'],
@@ -112,7 +118,7 @@ class ApiController extends Controller {
             return $this->makeError($e->getMessage());
         }
         
-        return $this->makeSuccess("Payment processed successfully.");
+        return $this->makeSuccess("Payment processed successfully");
     }
 
     /******
@@ -136,7 +142,8 @@ class ApiController extends Controller {
 
         return array(
             'foodCost' => $foodCost,
-            'paymentDue' => $paymentDue
+            'paymentDue' => $paymentDue,
+            'deliveryFee' => DELIVERY_FEE
         );
     }
 }

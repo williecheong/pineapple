@@ -117,7 +117,7 @@
 		                    </div>
 
 				            <div class="form-group">
-				              	<button class="btn btn-success btn-lg btn-block">
+				              	<button ng-click="stripeRun()" ng-disabled="loading" class="btn btn-success btn-lg btn-block">
 				              		<i class="fa fa-taxi"></i>
 				              		Place Order
 				              	</button>
@@ -148,7 +148,10 @@
         <script src="/assets/js/order.js"></script>
         <script>
         	$core = {
-		        "menuItem" : "{!! $menuItem !!}"
+		        "title" : "{!! $title !!}",
+        		"image" : "{!! $images[0] !!}",
+		        "menuItem" : "{!! $menuItem !!}",
+		        "stripeKey" : "{!! STRIPE_PUBLISHABLE_KEY !!}",
 		    };
         </script>
 	</body>
