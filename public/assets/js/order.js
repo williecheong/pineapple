@@ -2,9 +2,7 @@ var app = angular.module('myApp', ['ui.bootstrap', 'toaster']);
 
 app.controller('myController', function ($scope, $sce, $http, $filter, $modal, toaster) {
     $scope.constant = {
-        "menuItem" : $core.menuItem,
-        "unitPrice" : $core.unitPrice,
-        "deliveryFee" : $core.deliveryFee
+        "menuItem" : $core.menuItem
     };
 
     $scope.input = {

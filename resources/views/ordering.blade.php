@@ -108,7 +108,7 @@
 				                </p>
 				                <p style="margin-bottom:5px;font-size:17px">
 				                    <b>Delivery fee: </b>
-				                    <span ng-bind="constant.deliveryFee | currency" class="pull-right" style="text"></span>
+				                    <span ng-bind="{!!DELIVERY_FEE!!} | currency" class="pull-right" style="text"></span>
 				                </p>
 				                <p style="border-top:double;font-size:17px">
 				                    <b>Payment due: </b>
@@ -148,8 +148,6 @@
         <script src="/assets/js/order.js"></script>
         <script>
         	$core = {
-		        "unitPrice" : {!! $price !!},
-		        "deliveryFee" : {!! DELIVERY_FEE !!},
 		        "menuItem" : "{!! $menuItem !!}"
 		    };
         </script>
