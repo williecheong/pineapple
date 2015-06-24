@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Http\Controllers\Controller;
 
 class ApiController extends Controller {
@@ -11,18 +12,13 @@ class ApiController extends Controller {
     }
 
     public function getCost($menuItem, $quantity) {
-        $thisDirectory = '/assets/eat/' . $menuItem;
-        if (file_exists(public_path() . $thisDirectory) == false) {
-            return $this->makeError('Menu item does not exist');
+        try{
+            return $this->makeSuccess(
+                $this->costCalculator($menuItem, $quantity)
+            );
+        } catch (Exception $e) {
+            return $this->makeError($e->getMessage());
         }
-
-        if (!is_numeric($quantity)) {
-            return $this->makeError('Quantity must be numeric');
-        }
-
-        return $this->makeSuccess(
-            $this->costCalculator($menuItem, $quantity)
-        );
     }
 
     public function postOrder() {
@@ -77,11 +73,12 @@ class ApiController extends Controller {
         if (!isset($stripeToken)) {
             return $this->makeError("The Stripe token was not generated correctly");
         }
-        
-        $amount = $league->playerCostActual;
-        $amount = round($amount, 2);
 
         try {
+            $costs = $this->costCalculator($orderItem, $quantity);
+            $amount = $costs['paymentDue'];
+            $amount = round($amount, 2);
+
             \Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
             $customer = \Stripe\Customer::create(
                 array(
@@ -122,7 +119,10 @@ class ApiController extends Controller {
      * Assumes that all parameters have been validated */
     private function costCalculator($menuItem, $quantity) {
         $thisDirectory = '/assets/eat/' . $menuItem;
-        
+        if (file_exists(public_path() . $thisDirectory) == false || !is_numeric($quantity)) {
+            throw new Exception('Costing parameters are bad');
+        }
+
         $price = "10";
         if (file_exists(public_path() . $thisDirectory . '/price.txt')) {
             $price = file_get_contents(public_path() . $thisDirectory . '/price.txt');

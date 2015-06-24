@@ -1,6 +1,6 @@
-var app = angular.module('myApp', ['ui.bootstrap']);
+var app = angular.module('myApp', ['ui.bootstrap', 'toaster']);
 
-app.controller('myController', function ($scope, $sce, $http, $filter, $modal) {
+app.controller('myController', function ($scope, $sce, $http, $filter, $modal, toaster) {
     $scope.constant = {
         "menuItem" : $core.menuItem,
         "unitPrice" : $core.unitPrice,
@@ -26,6 +26,7 @@ app.controller('myController', function ($scope, $sce, $http, $filter, $modal) {
             $scope.paymentDue = data.paymentDue;
             return;
         }).error(function(data, status, headers, config) {
+            toaster.pop('error', 'Error: ' + status, data.message);
             console.log(data);
             return;
         });

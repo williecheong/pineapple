@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Roboto:500,100,300,700,400' rel='stylesheet' type="text/css">
+        <link href="/assets/vendor/ng-toaster/toaster.css" rel="stylesheet">
 		<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/assets/css/styles.css" rel="stylesheet">
 		<style>
@@ -23,7 +24,8 @@
 		</style>
 	</head>
 	<body ng-app="myApp" ng-controller="myController" class="main-background">
-		<div class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+		<toaster-container toaster-options="{'time-out': {!!TOASTER_FADE_OUT!!} }"></toaster-container>
+        <div class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
 		  	<div class="modal-dialog">
 			  	<div class="modal-content">
 			      	<div class="modal-header menu-item-as-background-image"></div>
@@ -142,6 +144,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>
         <script src="//js.stripe.com/v2/" type="text/javascript"></script>
 		<script src="//checkout.stripe.com/checkout.js"></script>
+        <script src="/assets/vendor/ng-toaster/toaster.js"></script>
         <script src="/assets/js/order.js"></script>
         <script>
         	$core = {
