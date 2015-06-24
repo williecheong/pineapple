@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-        <title>Pineapple Kitchen</title>
+        <title>{!! APP_NAME !!}</title>
         <link rel="icon" type="img/ico" href="/favicon.ico">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
@@ -106,7 +106,7 @@
 				                </p>
 				                <p style="margin-bottom:5px;font-size:17px">
 				                    <b>Delivery fee: </b>
-				                    <span ng-bind="constant.deliveryCharge | currency" class="pull-right" style="text"></span>
+				                    <span ng-bind="constant.deliveryFee | currency" class="pull-right" style="text"></span>
 				                </p>
 				                <p style="border-top:double;font-size:17px">
 				                    <b>Payment due: </b>
@@ -123,7 +123,7 @@
 			          	</form>
 			          	<div>
 				          	<div class="col-md-6">
-				        		<a href="#">
+				        		<a href="//williecheong.com">
 				        			Need help?
 				        		</a>
 				          	</div>	
@@ -140,11 +140,13 @@
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>
+        <script src="//js.stripe.com/v2/" type="text/javascript"></script>
+		<script src="//checkout.stripe.com/checkout.js"></script>
         <script src="/assets/js/order.js"></script>
         <script>
         	$core = {
 		        "unitPrice" : {!! $price !!},
-		        "deliveryCharge" : 5,
+		        "deliveryFee" : {!! DELIVERY_FEE !!},
 		        "menuItem" : "{!! $menuItem !!}"
 		    };
         </script>

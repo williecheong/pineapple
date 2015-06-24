@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-            <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-            <meta charset="utf-8">
-            <title>Pineapple Kitchen</title>
-            <link rel="icon" type="img/ico" href="/favicon.ico">
-            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-            <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-            <link href='//fonts.googleapis.com/css?family=Roboto:500,100,300,700,400' rel='stylesheet' type="text/css">
-            <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-            <link href="/assets/css/styles.css" rel="stylesheet">
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>{!! APP_NAME !!}</title>
+        <link rel="icon" type="img/ico" href="/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='//fonts.googleapis.com/css?family=Roboto:500,100,300,700,400' rel='stylesheet' type="text/css">
+        <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/assets/css/styles.css" rel="stylesheet">
     </head>
     <body>
         <div id="myCarousel" class="carousel slide">
@@ -66,7 +66,7 @@
         <footer class="text-center">
             <hr>
             <i class="fa fa-copyright"></i>
-            Pineapple Kitchen 2015 
+            {!! APP_NAME !!} {!! date('Y') !!}
         </footer>
         <!-- script references -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>

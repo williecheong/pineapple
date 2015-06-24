@@ -4,7 +4,7 @@ app.controller('myController', function ($scope, $sce, $http, $filter, $modal) {
     $scope.constant = {
         "menuItem" : $core.menuItem,
         "unitPrice" : $core.unitPrice,
-        "deliveryCharge" : $core.deliveryCharge
+        "deliveryFee" : $core.deliveryFee
     };
 
     $scope.input = {
@@ -21,11 +21,14 @@ app.controller('myController', function ($scope, $sce, $http, $filter, $modal) {
     };
 
     $scope.$watch("input.quantity", function(newValue, oldValue) {
-        $scope.foodCost = newValue * $scope.constant.unitPrice;
-        $scope.paymentDue = $scope.foodCost + $scope.constant.deliveryCharge;
-        if ($scope.input.quantity == 0) {
-            $scope.paymentDue = 0;
-        }
+        $http.get('/api/cost/' + $scope.constant.menuItem + '/' + newValue).success(function(data, status, headers, config) {
+            $scope.foodCost = data.foodCost;
+            $scope.paymentDue = data.paymentDue;
+            return;
+        }).error(function(data, status, headers, config) {
+            console.log(data);
+            return;
+        });
     });
 
 }).directive('validNumber', function() {
