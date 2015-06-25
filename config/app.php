@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'key' => env('APP_KEY', DINEAPPLE_HASH_KEY),
+    'key' => env('APP_KEY', '8T2BaG72gyjM7Ob046ETew7y12KJd2pa'),
 
     'cipher' => 'AES-256-CBC',
 
