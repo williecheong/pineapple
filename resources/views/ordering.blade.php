@@ -117,7 +117,7 @@
 		                    </div>
 
 				            <div class="form-group">
-				              	<button ng-click="stripeRun()" ng-disabled="loading" class="btn btn-success btn-lg btn-block">
+				              	<button ng-click="stripeRun($event)" ng-disabled="loading" class="btn btn-success btn-lg btn-block">
 				              		<i class="fa fa-taxi"></i>
 				              		Place Order
 				              	</button>
@@ -142,8 +142,10 @@
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.0/ui-bootstrap-tpls.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.min.js"></script>
-        <script src="//js.stripe.com/v2/" type="text/javascript"></script>
-		<script src="//checkout.stripe.com/checkout.js"></script>
+        
+        <script src="https://js.stripe.com/v2/" type="text/javascript"></script>
+		<script src="https://checkout.stripe.com/checkout.js"></script>
+        
         <script src="/assets/vendor/ng-toaster/toaster.js"></script>
         <script src="/assets/js/order.js"></script>
         <script>

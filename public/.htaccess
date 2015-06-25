@@ -12,4 +12,9 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    # Force into HTTPS for dineapple production site
+    RewriteCond %{HTTP_HOST} ^dineapple\.ca [NC]
+    RewriteCond %{SERVER_PORT} 80 
+    RewriteRule ^(.*)$ https://dineapple.ca/$1 [R,L]
 </IfModule>

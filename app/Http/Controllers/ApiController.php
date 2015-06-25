@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Stripe;
 use Exception;
+use Validator;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class ApiController extends Controller {
     
@@ -21,34 +25,8 @@ class ApiController extends Controller {
         }
     }
 
-    public function postOrder() {
-    	$input = array();
-        $input['orderItem'] = Input::get('orderItem', null);
-        $input['quantity'] = Input::get('quantity', null);
-        $input['contactName'] = Input::get('contactName', null);
-        $input['contactNumber'] = Input::get('contactNumber', null);
-        $input['contactEmail'] = Input::get('contactEmail', null);
-        $input['deliveryTime'] = Input::get('deliveryTime', null);
-        $input['addressLine1'] = Input::get('addressLine1', null);
-        $input['addressLine2'] = Input::get('addressLine2', null);
-        $input['addressCity'] = Input::get('addressCity', null);
-        $input['addressProvince'] = Input::get('addressProvince', null);
-        $input['addressPostal'] = Input::get('addressPostal', null);
-
-        $validator = Validator::make(
-            array(
-                'orderItem' => $input['orderItem'],
-                'quantity' => $input['quantity'],
-                'contactName' => $input['contactName'],
-                'contactNumber' => $input['contactNumber'],
-                'contactEmail' => $input['contactEmail'],
-                'deliveryTime' => $input['deliveryTime'],
-                'addressLine1' => $input['addressLine1'],
-                'addressLine2' => $input['addressLine2'],
-                'addressCity' => $input['addressCity'],
-                'addressProvince' => $input['addressProvince'],
-                'addressPostal' => $input['addressPostal'],
-            ),
+    public function postOrder(Request $request) {
+    	$validator = Validator::make( $request->all(), 
             array(
                 'orderItem' => 'required|numeric',
                 'quantity' => 'required|min:1',
@@ -65,24 +43,27 @@ class ApiController extends Controller {
         );
 
         if ($validator->fails()) {
-            $messages = $validator->messages()->all();
+            $messages = $validator->errors()->all();
             return $this->makeError($messages[0]);
         }
 
-        $stripeToken = Input::get('stripeToken', null);
+        $stripeToken = $request->input('stripeToken', null);
         if (!isset($stripeToken)) {
             return $this->makeError("The Stripe token was not generated correctly");
         }
 
         try {
-            $costs = $this->costCalculator($orderItem, $quantity);
+            $costs = $this->costCalculator(
+                $request->input('orderItem', null), 
+                $request->input('quantity', null)
+            );
             $amount = $costs['paymentDue'];
             $amount = round($amount, 2);
 
             \Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
             $customer = \Stripe\Customer::create(
                 array(
-                    'email' => $input['contactEmail'],
+                    'email' => $request->input('contactEmail', null),
                     'card'  => $stripeToken
                 )
             );
@@ -92,25 +73,25 @@ class ApiController extends Controller {
                     'customer' => $customer->id,
                     'amount'   => $amount * 100,
                     'currency' => 'cad',
-                    'receipt_email' => $input['contactEmail'],
+                    'receipt_email' => $request->input('contactEmail', null),
                     'metadata' => array(
-                        'orderItem' => $input['orderItem'],
-                        'quantity' => $input['quantity'],
+                        'orderItem' => $request->input('orderItem', null),
+                        'quantity' => $request->input('quantity', null),
                         
                         'foodCost' => $costs['foodCost'],
                         'paymentDue' => $costs['paymentDue'],
                         'deliveryFee' => $costs['deliveryFee'],
                         
-                        'contactName' => $input['contactName'],
-                        'contactNumber' => $input['contactNumber'],
-                        'contactEmail' => $input['contactEmail'],
-                        'deliveryTime' => $input['deliveryTime'],
+                        'contactName' => $request->input('contactName', null),
+                        'contactNumber' => $request->input('contactNumber', null),
+                        'contactEmail' => $request->input('contactEmail', null),
+                        'deliveryTime' => $request->input('deliveryTime', null),
                         
-                        'addressLine1' => $input['addressLine1'],
-                        'addressLine2' => $input['addressLine2'],
-                        'addressCity' => $input['addressCity'],
-                        'addressProvince' => $input['addressProvince'],
-                        'addressPostal' => $input['addressPostal'],
+                        'addressLine1' => $request->input('addressLine1', null),
+                        'addressLine2' => $request->input('addressLine2', null),
+                        'addressCity' => $request->input('addressCity', null),
+                        'addressProvince' => $request->input('addressProvince', null),
+                        'addressPostal' => $request->input('addressPostal', null),
                     )
                 )
             );

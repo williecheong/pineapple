@@ -93,10 +93,10 @@ app.controller('myController', function ($scope, $sce, $http, $filter, $modal, t
         
         // Open Checkout with further options
         $scope.stripeHandler.open({
-            name: 'Order for Tomorrow',
-            image: $scope.constants.image,
+            name: 'Delivers Tomorrow',
+            image: $scope.constant.image,
             email: $scope.input.contactEmail,
-            description : $scope.constants.title,
+            description : $scope.constant.title,
             amount : parseFloat($scope.paymentDue) * 100,
             currency : 'CAD',
             allowRememberMe : false
@@ -104,45 +104,44 @@ app.controller('myController', function ($scope, $sce, $http, $filter, $modal, t
         e.preventDefault();
     };
 
-    $scope.stripeInitialize = function() {
-        $scope.stripeHandler = StripeCheckout.configure({
-            key: $scope.constants.stripeKey,
-            image: $scope.constants.image,
-            token: function(token) {
-                // You can access the token ID with `token.id`
-                $scope.loading = true;
-                $http({
-                    'method': 'POST',
-                    'url': '/api/order',
-                    'data': {
-                        'stripeToken' : token.id,
-                        'orderItem' : $scope.constant.menuItem,
-                        'quantity' : $scope.input.quantity,
-                        'contactName' : $scope.input.contactName,
-                        'contactNumber' : $scope.input.contactNumber,
-                        'contactEmail' : $scope.input.contactEmail,
-                        'deliveryTime' : $scope.input.deliveryTime,
-                        'addressLine1' : $scope.input.addressLine1,
-                        'addressLine2' : $scope.input.addressLine2,
-                        'addressCity' : $scope.input.addressCity,
-                        'addressProvince' : $scope.input.addressProvince,
-                        'addressPostal' : $scope.input.addressPostal,
-                    }
-                }).success(function(data, status, headers, config) {
-                    toaster.pop('success', 'Success: ' + status, data.message);
-                    $scope.stripeHandler.close();
-                    setTimeout(function() {
-                        window.location.href = '/';
-                    }, 1500);
-                
-                }).error(function(data, status, headers, config) {
-                    toaster.pop('error', 'Error: ' + status, data.message);
-                    $scope.stripeHandler.close();
-                    $scope.loading = false;
-                });
-            }
-        });
-    };
+    $scope.stripeHandler = StripeCheckout.configure({
+        key: $scope.constant.stripeKey,
+        image: $scope.constant.image,
+        token: function(token) {
+            // You can access the token ID with `token.id`
+            $scope.loading = true;
+            $http({
+                'method': 'POST',
+                'url': '/api/order',
+                'data': {
+                    'stripeToken' : token.id,
+                    'orderItem' : $scope.constant.menuItem,
+                    'quantity' : $scope.input.quantity,
+                    'contactName' : $scope.input.contactName,
+                    'contactNumber' : $scope.input.contactNumber,
+                    'contactEmail' : $scope.input.contactEmail,
+                    'deliveryTime' : $scope.input.deliveryTime,
+                    'addressLine1' : $scope.input.addressLine1,
+                    'addressLine2' : $scope.input.addressLine2,
+                    'addressCity' : $scope.input.addressCity,
+                    'addressProvince' : $scope.input.addressProvince,
+                    'addressPostal' : $scope.input.addressPostal,
+                }
+            }).success(function(data, status, headers, config) {
+                toaster.pop('success', 'Success: ' + status, data.message);
+                $scope.stripeHandler.close();
+                setTimeout(function() {
+                    window.location.href = '/';
+                }, 1500);
+            
+            }).error(function(data, status, headers, config) {
+                toaster.pop('error', 'Error: ' + status, "Something went wrong");
+                $scope.stripeHandler.close();
+                $scope.loading = false;
+                console.log(data);
+            });
+        }
+    });
 
     $scope.validateEmail = function(email) {
         var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
