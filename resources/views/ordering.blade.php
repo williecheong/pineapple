@@ -156,5 +156,8 @@
 		        "stripeKey" : "{!! env('STRIPE_PUBLISHABLE_KEY') !!}",
 		    };
         </script>
+        @if ($app->environment('production'))
+        	@include('templates.analytics')
+        @endif
 	</body>
 </html>

@@ -71,5 +71,8 @@
         <!-- script references -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
         <script src="/assets/js/bootstrap.min.js"></script>
+        @if ($app->environment('production'))
+            @include('templates.analytics')
+        @endif
     </body>
 </html>
