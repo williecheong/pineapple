@@ -81,7 +81,7 @@
 		                            <input ng-model="input.addressLine1" ng-disabled="loading" type="text" class="form-control" placeholder="Street Address">
 		                        </div>
 		                        <div class="col-xs-3">
-		                            <input ng-model="input.addressLine2" ng-disabled="loading" type="text" class="form-control" placeholder="Appt #">
+		                            <input ng-model="input.addressLine2" ng-disabled="loading" type="text" class="form-control" placeholder="Apt #">
 		                        </div>
 			              	</div>
 				            <div class="form-group row">
@@ -153,7 +153,7 @@
 		        "title" : "{!! $title !!}",
         		"image" : "{!! $images[0] !!}",
 		        "menuItem" : "{!! $menuItem !!}",
-		        "stripeKey" : "{!! STRIPE_PUBLISHABLE_KEY !!}",
+		        "stripeKey" : "{!! env('STRIPE_PUBLISHABLE_KEY') !!}",
 		    };
         </script>
 	</body>

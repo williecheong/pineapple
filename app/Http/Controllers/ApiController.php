@@ -60,7 +60,7 @@ class ApiController extends Controller {
             $amount = $costs['paymentDue'];
             $amount = round($amount, 2);
 
-            \Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
+            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
             $customer = \Stripe\Customer::create(
                 array(
                     'email' => $request->input('contactEmail', null),
