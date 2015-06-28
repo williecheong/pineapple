@@ -34,7 +34,7 @@
 			      			<div class="form-group row">
 			      				<div class="col-xs-12">
 			      					<div class="input-group pull-right" style="max-width:25%;">
-									  	<input ng-model="input.quantity" ng-disabled="loading" type="text" class="form-control" placeholder="1" valid-number>
+									  	<input ng-model="input.quantity" ng-disabled="loading" type="text" class="form-control" style="min-width:38px;margin-left:5px;" placeholder="1" valid-number>
 										<span class="input-group-addon">serving(s)</span>
 								  	</div>
 			            			<h3 style="margin-top:0px;">{!! $title !!}</h3>
