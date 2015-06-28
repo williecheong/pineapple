@@ -125,7 +125,7 @@
 			          	</form>
 			          	<div>
 				          	<div class="col-md-6">
-				        		<a href="//williecheong.com">
+				        		<a href="http://williecheong.com">
 				        			Need help?
 				        		</a>
 				          	</div>	
