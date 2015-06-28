@@ -99,37 +99,44 @@
 
         <!-- Footer -->
         <footer class="text-center">
-            {{--
             <div class="footer-above">
                 <div class="container">
                     <div class="row">
                         <div class="footer-col col-md-4">
-                            <h3>Location</h3>
-                            <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
+                            <h3>About {!! APP_NAME !!}</h3>
+                            <p>Striving to serve something new and delicious everyday.</p>
                         </div>
                         <div class="footer-col col-md-4">
-                            <h3>Around the Web</h3>
+                            <h3>Contact Us</h3>
                             <ul class="list-inline">
                                 <li>
-                                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                    <a href="http://terrychen.me" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-coffee"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                                    <a href="http://williecheong.com" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-desktop"></i>
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                                    <a href="#" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-heartbeat"></i>
+                                    </a>
                                 </li>
                                 </li>
                             </ul>
                         </div>
                         <div class="footer-col col-md-4">
-                            <h3>About Freelancer</h3>
-                            <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                            <h3>Location</h3>
+                            <p>
+                                Restaurant coming soon<br>
+                                Stay tuned!
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
-            --}}
             <div class="footer-below">
                 <div class="container">
                     <div class="row">
@@ -146,7 +153,7 @@
             <!-- Portfolio Modals -->
             <div class="portfolio-modal modal fade" id="portfolioModal{!! $key !!}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-content">
-                    <div class="close-modal pull-right" data-dismiss="modal">
+                    <div class="close-modal" data-dismiss="modal">
                         <div class="lr">
                             <div class="rl">
                             </div>
@@ -161,7 +168,11 @@
                                     </h2>
                                     <hr class="star-primary">
                                     <img src="{!! $image !!}" class="img-responsive img-centered img-rounded" alt="">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                    <button type="button" class="btn btn-lg btn-default" style="margin-top:15px;" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                    <a href="/order" class="btn btn-lg btn-outline">
+                                        <i class="fa fa-cutlery"></i>
+                                        Order For Tomorrow
+                                    </a>
                                 </div>
                             </div>
                         </div>

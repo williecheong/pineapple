@@ -13,7 +13,7 @@
 		<link href="/assets/css/ordering.css?v={!! date('Ymd') !!}" rel="stylesheet">
 		<style>
 			.main-background {
-				background-image: url('/assets/img/kitchen1.jpg');
+				background-image: url('/assets/img/chef1.jpg');
 				background-size: cover;
 			}
 
