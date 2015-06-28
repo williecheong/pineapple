@@ -4,13 +4,13 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
         <title>{!! APP_NAME !!}</title>
-        <link rel="icon" type="img/ico" href="/favicon.ico">
+        <link rel="icon" type="img/ico" href="/favicon.ico?v={!! date('Ymd') !!}">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <link href='//fonts.googleapis.com/css?family=Roboto:500,100,300,700,400' rel='stylesheet' type="text/css">
         <link href="/assets/vendor/ng-toaster/toaster.css" rel="stylesheet">
 		<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/assets/css/ordering.css" rel="stylesheet">
+		<link href="/assets/css/ordering.css?v={!! date('Ymd') !!}" rel="stylesheet">
 		<style>
 			.main-background {
 				background-image: url('/assets/img/kitchen1.jpg');
@@ -147,7 +147,7 @@
 		<script src="https://checkout.stripe.com/checkout.js"></script>
         
         <script src="/assets/vendor/ng-toaster/toaster.js"></script>
-        <script src="/assets/js/ordering.js"></script>
+        <script src="/assets/js/ordering.js?v={!! date('Ymd') !!}"></script>
         <script>
         	$core = {
 		        "title" : "{!! $title !!}",
