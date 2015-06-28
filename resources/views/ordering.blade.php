@@ -10,7 +10,7 @@
         <link href='//fonts.googleapis.com/css?family=Roboto:500,100,300,700,400' rel='stylesheet' type="text/css">
         <link href="/assets/vendor/ng-toaster/toaster.css" rel="stylesheet">
 		<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="/assets/css/styles.css" rel="stylesheet">
+		<link href="/assets/css/ordering.css" rel="stylesheet">
 		<style>
 			.main-background {
 				background-image: url('/assets/img/kitchen1.jpg');
@@ -147,7 +147,7 @@
 		<script src="https://checkout.stripe.com/checkout.js"></script>
         
         <script src="/assets/vendor/ng-toaster/toaster.js"></script>
-        <script src="/assets/js/order.js"></script>
+        <script src="/assets/js/ordering.js"></script>
         <script>
         	$core = {
 		        "title" : "{!! $title !!}",

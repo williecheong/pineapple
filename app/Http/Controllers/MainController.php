@@ -10,10 +10,12 @@ class MainController extends Controller {
     	$menu = $this->extractLatestMenu();
         return view('landing', 
         	array(
-        		'images' => $menu['images'],
-        		'price' => $menu['price'],
-        		'title' => $menu['title'],
-        		'subtitle' => $menu['subtitle'],
+                'menuItem' => $menu['menuItem'],
+                'images' => $menu['images'],
+                'price' => $menu['price'],
+                'title' => $menu['title'],
+                'subtitle' => $menu['subtitle'],
+                'theme' => $menu['theme'],
         	)
         );
     }
@@ -27,6 +29,7 @@ class MainController extends Controller {
         		'price' => $menu['price'],
         		'title' => $menu['title'],
         		'subtitle' => $menu['subtitle'],
+                'theme' => $menu['theme'],
         	)
         );
     }
@@ -63,12 +66,18 @@ class MainController extends Controller {
 			$price = file_get_contents(public_path() . $thisDirectory . '/price.txt');
 		}
 
+        $theme = "white";
+        if (file_exists(public_path() . $thisDirectory . '/theme.txt')) {
+            $theme = file_get_contents(public_path() . $thisDirectory . '/theme.txt');
+        }
+
 		return array(
 			'menuItem' => $date,
 			'images' => $images,
 			'price' => $price,
 			'title' => $title,
-			'subtitle' => $subtitle		
+			'subtitle' => $subtitle,
+            'theme' => $theme	
 		);
     }
 
