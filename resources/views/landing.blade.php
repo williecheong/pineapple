@@ -122,7 +122,7 @@
                             <h3>Contact Us</h3>
                             <ul class="list-inline">
                                 <li>
-                                    <a href="http://terrychen.me" class="btn-social btn-outline">
+                                    <a href="http://williecheong.com" class="btn-social btn-outline">
                                         <i class="fa fa-fw fa-users"></i>
                                     </a>
                                 </li>
