@@ -123,14 +123,18 @@
                             <ul class="list-inline">
                                 <li>
                                     <a href="http://terrychen.me" class="btn-social btn-outline">
-                                        <i class="fa fa-fw fa-coffee"></i>
+                                        <i class="fa fa-fw fa-users"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://www.yelp.ca/biz/dineapple-waterloo" class="btn-social btn-outline">
-                                        <i class="fa fa-fw fa-yelp"></i>
+                                    <a href="https://twitter.com/dineapple" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-twitter"></i>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="http://yelp.ca/biz/dineapple-waterloo" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-yelp"></i>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
