@@ -127,13 +127,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="http://williecheong.com" class="btn-social btn-outline">
-                                        <i class="fa fa-fw fa-desktop"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" class="btn-social btn-outline">
-                                        <i class="fa fa-fw fa-heartbeat"></i>
+                                    <a href="http://www.yelp.ca/biz/dineapple-waterloo" class="btn-social btn-outline">
+                                        <i class="fa fa-fw fa-yelp"></i>
                                     </a>
                                 </li>
                                 </li>
