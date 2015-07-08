@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', 'MainController@main');
-Route::get('/order', 'MainController@order');
-
-Route::controller('api', 'ApiController');
+if (env('SHOP_CLOSED')) {
+	Route::get('/', 'MainController@closed');
+} else {
+	Route::get('/', 'MainController@main');
+	Route::get('/order', 'MainController@order');
+	Route::controller('api', 'ApiController');
+}

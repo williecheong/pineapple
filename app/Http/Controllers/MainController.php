@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 
 class MainController extends Controller {
     
+    public function closed() {
+        return view('closed');
+    }
+
     public function main() {
     	$menu = $this->extractLatestMenu();
         return view('landing', 
