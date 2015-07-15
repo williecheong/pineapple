@@ -121,11 +121,13 @@
                         <div class="footer-col col-md-4">
                             <h3>Contact Us</h3>
                             <ul class="list-inline">
+                                {{--
                                 <li>
                                     <a href="http://williecheong.com" class="btn-social btn-outline">
                                         <i class="fa fa-fw fa-users"></i>
                                     </a>
                                 </li>
+                                --}}
                                 <li>
                                     <a href="https://twitter.com/dineapple" class="btn-social btn-outline">
                                         <i class="fa fa-fw fa-twitter"></i>
