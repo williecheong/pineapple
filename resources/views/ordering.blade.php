@@ -57,9 +57,11 @@
 		                                <option value="6.30pm">Deliver at around 6.30pm</option>
 		                                <option value="6.45pm">Deliver at around 6.45pm</option>
 		                                <option value="7.00pm">Deliver at around 7.00pm</option>
+		                                {{--
 		                                <option value="7.15pm">Deliver at around 7.15pm</option>
 		                                <option value="7.30pm">Deliver at around 7.30pm</option>
 		                            	<option value="7.45pm">Deliver at around 7.45pm</option>
+	                                	--}}
 	                                </select>
 			            		</div>
 			              	</div>
