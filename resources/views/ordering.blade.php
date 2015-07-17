@@ -124,13 +124,11 @@
 			            	</div>
 			          	</form>
 			          	<div>
-				          	{{--
 				          	<div class="col-md-6">
-				        		<a href="http://terrychen.me">
+				        		<a href="http://williecheong.com">
 				        			Need help?
 				        		</a>
 				          	</div>
-				          	--}}	
 				          	<div class="col-md-6 text-right">
 				        		<i class="fa fa-lock"></i>
 				        		Secured with Stripe
