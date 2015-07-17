@@ -25,11 +25,16 @@
 	</head>
 	<body ng-app="myApp" ng-controller="myController" class="main-background">
 		<toaster-container toaster-options="{'time-out': {!!TOASTER_FADE_OUT!!} }"></toaster-container>
-        <div class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
-		  	<div class="modal-dialog">
+		<div class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
 			  	<div class="modal-content">
-			      	<div class="modal-header menu-item-as-background-image"></div>
-			      	<div class="modal-body row">
+			      	<div class="modal-header menu-item-as-background-image">
+			      		<a href="/" class="btn pull-left" style="color:#333;">
+							<i class="fa fa-arrow-left"></i>
+							Back
+						</a>
+			      	</div>
+			      	<div class="modal-body row" style="padding-bottom:5px;">
 			      		<form class="form col-md-12 center-block">
 			      			<div class="form-group row">
 			      				<div class="col-xs-12">
@@ -127,13 +132,15 @@
 			          	</form>
 			          	<div>
 				          	<div class="col-md-6">
-				        		<a href="http://williecheong.com">
-				        			Need help?
-				        		</a>
+				          		<p>
+					          		Delivers right to your door<br>
+					        		<a href="http://williecheong.com">
+					        			Need help?
+					        		</a>
+				        		</p>
 				          	</div>
 				          	<div class="col-md-6 text-right">
-				        		<i class="fa fa-lock"></i>
-				        		Secured with Stripe
+				          		<img src="/assets/img/payment-stripe.png" style="max-height:40px;">
 				          	</div>	
 				        </div>
 			      	</div>
