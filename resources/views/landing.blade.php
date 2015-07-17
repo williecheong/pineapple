@@ -76,12 +76,14 @@
         <section class="success" id="about" style="padding-top:18px;">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6 col-md-offset-3 text-center">
-                        <img src="/assets/img/pineapple2.png" class="img-responsive">
-                        <h2>About the Kitchen</h2>
+                    <div class="col-sm-2 col-sm-offset-5 text-center">
+                        <img src="/assets/img/cute-pineapple-outline.png" class="img-responsive">
                     </div>
                 </div>
                 <div class="row" style="text-align:justify;">
+                    <div class="col-md-12 text-center">
+                        <h2>About the Kitchen</h2>
+                    </div>
                     <div class="col-md-5 col-md-offset-1">
                         <p>
                             Dineapple brings quality, affordability, and variety food to the people.
