@@ -34,7 +34,7 @@
                             <div>
                                 <a href="/order" class="btn btn-lg btn-outline">
                                     <i class="fa fa-cutlery"></i>
-                                    Order For Tomorrow
+                                    Order For Monday
                                 </a>
                             </div>
                         </div>
@@ -93,13 +93,13 @@
                         <p>
                             We're tired of going out to eat burgers and nasty chinese food. 
                             But more importantly, we make good food.
-                            So why not have a {!! strtolower($title) !!} for dinner tomorrow.
+                            So why not have a {!! strtolower($title) !!} for dinner Monday.
                         </p>
                     </div>
                     <div class="col-md-8 col-md-offset-2 text-center">
                         <a href="/order" class="btn btn-lg btn-default">
                             <i class="fa fa-cutlery"></i>
-                            Order For Tomorrow
+                            Order For Monday
                         </a>
                     </div>
                 </div>
@@ -184,7 +184,7 @@
                                     <button type="button" class="btn btn-lg btn-default" style="margin-top:15px;" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                                     <a href="/order" class="btn btn-lg btn-outline">
                                         <i class="fa fa-cutlery"></i>
-                                        Order For Tomorrow
+                                        Order For Monday
                                     </a>
                                 </div>
                             </div>
