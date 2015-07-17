@@ -29,7 +29,7 @@
 			<div class="modal-dialog">
 			  	<div class="modal-content">
 			      	<div class="modal-header menu-item-as-background-image">
-			      		<a href="/" class="btn btn-xs pull-left" style="color:#333;">
+			      		<a href="/" class="btn btn-xs pull-left" style="color:#5A5A5A;">
 							<i class="fa fa-arrow-left"></i>
 							Back
 						</a>
